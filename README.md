@@ -1,7 +1,7 @@
-# IOStuff
+# EpitechEisenhower
 
-Ronan Courture (courtu_r)
+This is a repo for the app Epitech Eisenhower project. An iOS app based on Eisenhower Task Matrix (https://fr.wikipedia.org/wiki/Matrice_d%27Eisenhower).
 
-Julie Terranova (terran_j)
+Screens can be found in the folder graphics/export_screens. There's also a sketch file in case.
 
-Cyril Vallerie (valler_c) ?
+All right reserved to Fred Fauquette (fredfocmac@gmail.com)
