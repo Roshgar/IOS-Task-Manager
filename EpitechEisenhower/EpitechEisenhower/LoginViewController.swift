@@ -10,7 +10,8 @@ import UIKit
 import GoogleSignIn
 
 class LoginViewController: UIViewController, GIDSignInUIDelegate {
-
+    
+    @IBOutlet weak var googleConnectButton: UIButton!;
     @IBOutlet weak var connectButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +42,6 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
     @IBAction func connect(_ sender: Any) {
         performSegue(withIdentifier: "showHome", sender: nil)
     }
-    
+
 }
 
