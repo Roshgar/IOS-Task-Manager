@@ -7,14 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		073175672060555B00F592C5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 073175662060555B00F592C5 /* GoogleService-Info.plist */; };
 		9A5623D51F7940280009CD23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5623D41F7940280009CD23 /* AppDelegate.swift */; };
 		9A5623D71F7940280009CD23 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5623D61F7940280009CD23 /* LoginViewController.swift */; };
 		9A5623DA1F7940280009CD23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A5623D81F7940280009CD23 /* Main.storyboard */; };
 		9A5623DC1F7940280009CD23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A5623DB1F7940280009CD23 /* Assets.xcassets */; };
 		9A5623DF1F7940280009CD23 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A5623DD1F7940280009CD23 /* LaunchScreen.storyboard */; };
+		DFC1881D2306B2B2BE89EBC0 /* Pods_EpitechEisenhower.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B9CA8BF0011DDEB644C86D7 /* Pods_EpitechEisenhower.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		073175662060555B00F592C5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		38E65D9E30547C055BBBCF54 /* Pods-EpitechEisenhower.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EpitechEisenhower.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EpitechEisenhower/Pods-EpitechEisenhower.debug.xcconfig"; sourceTree = "<group>"; };
+		5B9CA8BF0011DDEB644C86D7 /* Pods_EpitechEisenhower.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EpitechEisenhower.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6B432F7DAED5271F483C317E /* Pods-EpitechEisenhower.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EpitechEisenhower.release.xcconfig"; path = "Pods/Target Support Files/Pods-EpitechEisenhower/Pods-EpitechEisenhower.release.xcconfig"; sourceTree = "<group>"; };
 		9A5623D11F7940280009CD23 /* EpitechEisenhower.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EpitechEisenhower.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A5623D41F7940280009CD23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A5623D61F7940280009CD23 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -29,17 +35,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DFC1881D2306B2B2BE89EBC0 /* Pods_EpitechEisenhower.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		26261CC8E1159E1559E60D70 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5B9CA8BF0011DDEB644C86D7 /* Pods_EpitechEisenhower.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		9A5623C81F7940280009CD23 = {
 			isa = PBXGroup;
 			children = (
 				9A5623D31F7940280009CD23 /* EpitechEisenhower */,
 				9A5623D21F7940280009CD23 /* Products */,
+				DE3B37483A2F8836BCBA54A7 /* Pods */,
+				26261CC8E1159E1559E60D70 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,6 +71,7 @@
 		9A5623D31F7940280009CD23 /* EpitechEisenhower */ = {
 			isa = PBXGroup;
 			children = (
+				073175662060555B00F592C5 /* GoogleService-Info.plist */,
 				9A5623D41F7940280009CD23 /* AppDelegate.swift */,
 				9A5623D61F7940280009CD23 /* LoginViewController.swift */,
 				9A5623D81F7940280009CD23 /* Main.storyboard */,
@@ -64,6 +82,15 @@
 			path = EpitechEisenhower;
 			sourceTree = "<group>";
 		};
+		DE3B37483A2F8836BCBA54A7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				38E65D9E30547C055BBBCF54 /* Pods-EpitechEisenhower.debug.xcconfig */,
+				6B432F7DAED5271F483C317E /* Pods-EpitechEisenhower.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +98,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9A5623E31F7940280009CD23 /* Build configuration list for PBXNativeTarget "EpitechEisenhower" */;
 			buildPhases = (
+				B613ABB951086F801996D00C /* [CP] Check Pods Manifest.lock */,
 				9A5623CD1F7940280009CD23 /* Sources */,
 				9A5623CE1F7940280009CD23 /* Frameworks */,
 				9A5623CF1F7940280009CD23 /* Resources */,
+				DA30CCB01D71325C7D63C55A /* [CP] Embed Pods Frameworks */,
+				EF03F3E08C0CE2F2AA7A8E61 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -124,12 +154,76 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A5623DF1F7940280009CD23 /* LaunchScreen.storyboard in Resources */,
+				073175672060555B00F592C5 /* GoogleService-Info.plist in Resources */,
 				9A5623DC1F7940280009CD23 /* Assets.xcassets in Resources */,
 				9A5623DA1F7940280009CD23 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B613ABB951086F801996D00C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EpitechEisenhower-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DA30CCB01D71325C7D63C55A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-EpitechEisenhower/Pods-EpitechEisenhower-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EpitechEisenhower/Pods-EpitechEisenhower-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EF03F3E08C0CE2F2AA7A8E61 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-EpitechEisenhower/Pods-EpitechEisenhower-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EpitechEisenhower/Pods-EpitechEisenhower-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9A5623CD1F7940280009CD23 /* Sources */ = {
@@ -272,6 +366,7 @@
 		};
 		9A5623E41F7940280009CD23 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 38E65D9E30547C055BBBCF54 /* Pods-EpitechEisenhower.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -286,6 +381,7 @@
 		};
 		9A5623E51F7940280009CD23 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6B432F7DAED5271F483C317E /* Pods-EpitechEisenhower.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
