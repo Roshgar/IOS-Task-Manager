@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		073175672060555B00F592C5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 073175662060555B00F592C5 /* GoogleService-Info.plist */; };
+		5C05CED12066B3340065F039 /* TaskDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C05CECF2066B3340065F039 /* TaskDetailsViewController.swift */; };
+		5C05CED22066B3340065F039 /* YourProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C05CED02066B3340065F039 /* YourProfileViewController.swift */; };
 		9A5623D51F7940280009CD23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5623D41F7940280009CD23 /* AppDelegate.swift */; };
 		9A5623D71F7940280009CD23 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5623D61F7940280009CD23 /* LoginViewController.swift */; };
 		9A5623DA1F7940280009CD23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A5623D81F7940280009CD23 /* Main.storyboard */; };
@@ -20,6 +22,8 @@
 		073175662060555B00F592C5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		38E65D9E30547C055BBBCF54 /* Pods-EpitechEisenhower.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EpitechEisenhower.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EpitechEisenhower/Pods-EpitechEisenhower.debug.xcconfig"; sourceTree = "<group>"; };
 		5B9CA8BF0011DDEB644C86D7 /* Pods_EpitechEisenhower.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EpitechEisenhower.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C05CECF2066B3340065F039 /* TaskDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskDetailsViewController.swift; sourceTree = "<group>"; };
+		5C05CED02066B3340065F039 /* YourProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YourProfileViewController.swift; sourceTree = "<group>"; };
 		6B432F7DAED5271F483C317E /* Pods-EpitechEisenhower.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EpitechEisenhower.release.xcconfig"; path = "Pods/Target Support Files/Pods-EpitechEisenhower/Pods-EpitechEisenhower.release.xcconfig"; sourceTree = "<group>"; };
 		9A5623D11F7940280009CD23 /* EpitechEisenhower.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EpitechEisenhower.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A5623D41F7940280009CD23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +75,8 @@
 		9A5623D31F7940280009CD23 /* EpitechEisenhower */ = {
 			isa = PBXGroup;
 			children = (
+				5C05CECF2066B3340065F039 /* TaskDetailsViewController.swift */,
+				5C05CED02066B3340065F039 /* YourProfileViewController.swift */,
 				073175662060555B00F592C5 /* GoogleService-Info.plist */,
 				9A5623D41F7940280009CD23 /* AppDelegate.swift */,
 				9A5623D61F7940280009CD23 /* LoginViewController.swift */,
@@ -231,6 +237,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A5623D71F7940280009CD23 /* LoginViewController.swift in Sources */,
+				5C05CED22066B3340065F039 /* YourProfileViewController.swift in Sources */,
+				5C05CED12066B3340065F039 /* TaskDetailsViewController.swift in Sources */,
 				9A5623D51F7940280009CD23 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

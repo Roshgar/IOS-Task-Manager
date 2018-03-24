@@ -41,6 +41,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         GIDSignIn.sharedInstance().signIn()
     }
     
+    // segue showHome is executed twice, fix that
     @IBAction func connect(_ sender: Any) {
         performSegue(withIdentifier: "showHome", sender: nil)
     }
