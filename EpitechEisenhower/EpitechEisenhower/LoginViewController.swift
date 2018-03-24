@@ -11,7 +11,7 @@ import GoogleSignIn
 
 class LoginViewController: UIViewController, GIDSignInUIDelegate {
     
-    @IBOutlet weak var googleConnectButton: UIButton!;
+    @IBOutlet weak var googleConnectButton: GIDSignInButton!;
     @IBOutlet weak var connectButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +23,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
     }
 
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        print("In sign func")
         if (error != nil) {
             print("Google sign in error")
         }
@@ -36,6 +37,10 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func googleConnect(_ sender: Any) {
+        GIDSignIn.sharedInstance().signIn()
+    }
+    
     @IBAction func connect(_ sender: Any) {
         performSegue(withIdentifier: "showHome", sender: nil)
     }

@@ -12,6 +12,7 @@ import GoogleSignIn
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate{
+    
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         // ...
         if let error = error {
@@ -22,7 +23,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate{
         guard let authentication = user.authentication else { return }
         let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
                                                        accessToken: authentication.accessToken)
-        // ...
+        Auth.auth().signIn(with : credential) { (user, error) in
+            if let error = error {
+                print(error)
+                return
+            }
+            print ("logged in")
+            //self.window?.rootViewController!.performSegue(withIdentifier: "showHome", sender: nil)
+            let storyboard = UIStoryboard(name : "Main", bundle : nil)
+            let viewController : LoginViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+            let rootViewController = self.window!.rootViewController as! UINavigationController
+            rootViewController.pushViewController(viewController, animated : true)
+        }
     }
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
         // Perform any operations when the user disconnects from app here.
