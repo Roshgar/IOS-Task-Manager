@@ -8,6 +8,9 @@
 
 import UIKit
 import GoogleSignIn
+import FBSDKLoginKit
+import FBSDKCoreKit
+
 
 class LoginViewController: UIViewController, GIDSignInUIDelegate {
     
@@ -18,10 +21,16 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         title = "Login"
         connectButton.layer.cornerRadius = 5
         GIDSignIn.sharedInstance().uiDelegate = self
-        GIDSignIn.sharedInstance().signInSilently()
+        /*let fbLoginButton = FBSDKLoginButton()
+        fbLoginButton.delegate = self
+        view.addSubview(fbLoginButton)*/
+        //GIDSignIn.sharedInstance().signInSilently()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
+    
+
+    
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         print("In sign func")
         if (error != nil) {

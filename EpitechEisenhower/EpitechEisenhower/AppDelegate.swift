@@ -36,6 +36,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate{
             rootViewController.pushViewController(viewController, animated : true)
         }
     }
+    /*
+    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
+        if let error = error {
+            print(error.localizedDescription)
+            return
+        }
+        let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
+        Auth.auth().signIn(with: credential) { (user, error) in
+            if let error = error {
+                // ...
+                return
+            }
+            // User is signed in
+            // ...
+        }
+        // ...
+    }
+    */
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
         // Perform any operations when the user disconnects from app here.
         // ...
