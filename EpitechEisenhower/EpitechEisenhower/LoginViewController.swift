@@ -18,7 +18,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         title = "Login"
         connectButton.layer.cornerRadius = 5
         GIDSignIn.sharedInstance().uiDelegate = self
-        //GIDSignIn.sharedInstance().signIn()
+        GIDSignIn.sharedInstance().signInSilently()
         // Do any additional setup after loading the view, typically from a nib.
     }
 

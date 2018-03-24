@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate{
             print ("logged in")
             //self.window?.rootViewController!.performSegue(withIdentifier: "showHome", sender: nil)
             let storyboard = UIStoryboard(name : "Main", bundle : nil)
-            let viewController : LoginViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+            let viewController : HomeViewController = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
             let rootViewController = self.window!.rootViewController as! UINavigationController
             rootViewController.pushViewController(viewController, animated : true)
         }

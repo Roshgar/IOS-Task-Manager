@@ -95,7 +95,7 @@
         <!--Home-->
         <scene sceneID="7r3-iZ-Ubt">
             <objects>
-                <viewController title="Home" id="bpJ-7R-gCs" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" title="Home" id="bpJ-7R-gCs" customClass="HomeViewController" customModule="EpitechEisenhower" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gag-Nj-uT7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
