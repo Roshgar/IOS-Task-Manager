@@ -118,7 +118,7 @@
                     <navigationItem key="navigationItem" id="Oha-Ie-XXa"/>
                     <connections>
                         <outlet property="connectButton" destination="mU7-pM-bLz" id="tMa-xC-qtt"/>
-                        <outlet property="googleConnectButton" destination="E5A-b7-BEg" id="x3S-0l-2lJ"/>
+                        <outlet property="googleConnectButton" destination="8bC-Xf-vdC" id="ja1-9f-0SD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

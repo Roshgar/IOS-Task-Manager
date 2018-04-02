@@ -11,9 +11,13 @@ import Firebase
 import GoogleSignIn
 import FBSDKLoginKit
 import FBSDKCoreKit
+import FirebaseDatabase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate{
+    var refDB : DatabaseReference!;
+    var window: UIWindow?
+    
     
     func logToFirebase(credential : AuthCredential) {
         Auth.auth().signIn(with : credential) { (user, error) in
@@ -30,10 +34,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate{
         }
     }
     
+    
+    // Google sign in function
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         // ...
         if let error = error {
-            // ...
+            print(error)
             return
         }
         
@@ -41,33 +47,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate{
         let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
                                                        accessToken: authentication.accessToken)
         logToFirebase(credential: credential)
+        let currentUser = Auth.auth().currentUser
+        let userID = Auth.auth().currentUser?.uid
+        self.refDB.child("users").child(userID!).observeSingleEvent(of: .value, with: {(snapshot) in
+            let value = snapshot.value as? NSDictionary
+            if (value == nil) {
+                self.refDB.child("users").child(userID!).setValue(["name" : currentUser?.displayName])
+            }
+            else {
+                print(currentUser?.displayName)
+            }
+            
+            
+        })
+        
     }
-    
-    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
-        if let error = error {
-            print(error.localizedDescription)
-            return
-        }
-        print("In facebook login")
-        let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
-        logToFirebase(credential: credential)
-        // ...
-    }
-    
+
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
         // Perform any operations when the user disconnects from app here.
         // ...
     }
 
-    var window: UIWindow?
+   
     
-    
-    // Open url function
-    // func application(_ application: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any]) -> Bool {
-    /*
-     return GIDSignIn.sharedInstance().handle(url,
-     sourceApplication:options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
-     annotation: [:])*/
     func application(_ application: UIApplication, open url: URL, sourceApplication : String?, annotation: Any) -> Bool {
             print("in open URL")
             let facebook = FBSDKApplicationDelegate.sharedInstance().application(application,
@@ -83,6 +85,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate{
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
+        self.refDB = Database.database().reference()
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)

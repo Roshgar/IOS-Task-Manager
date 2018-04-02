@@ -11,23 +11,21 @@ import GoogleSignIn
 import FBSDKLoginKit
 import FBSDKCoreKit
 import Firebase
+import FirebaseDatabase
 
 
 class LoginViewController: UIViewController, GIDSignInUIDelegate {
     
     @IBOutlet weak var googleConnectButton: GIDSignInButton!;
     @IBOutlet weak var connectButton: UIButton!
+    var refDB : DatabaseReference!;
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.refDB = Database.database().reference()
         title = "Login"
         connectButton.layer.cornerRadius = 5
         GIDSignIn.sharedInstance().uiDelegate = self
-        //let fbLoginButton = FBSDKLoginButton()
-        //fbLoginButton.delegate = self as! FBSDKLoginButtonDelegate
-        //loginButton.center = view.center
-        //view.addSubview(loginButton)
-        //GIDSignIn.sharedInstance().signInSilently()
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
     
@@ -58,22 +56,26 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
                     return
                 }
                 
-                // Present the main view
-                
+                // Add user to DB if not present
+                let currentUser = Auth.auth().currentUser
+                let userID = Auth.auth().currentUser?.uid
+                //
+                self.refDB.child("users").child(userID!).observeSingleEvent(of: .value, with: {(snapshot) in
+                    let value = snapshot.value as? NSDictionary
+                    if (value == nil) {
+                        self.refDB.child("users").child(userID!).setValue(["name" : currentUser?.displayName])
+                    }
+                    else {
+                         print(currentUser?.displayName)
+                    }
+                   
+                    
+                })
+                // Redirect to Home
                 self.performSegue(withIdentifier: "showHome", sender: nil)
                 
             })
             
-        }
-    }
-    
-    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-        print("In sign func")
-        if (error != nil) {
-            print("Google sign in error")
-        }
-        else {
-            self.performSegue(withIdentifier: "showHome", sender: nil)
         }
     }
     

@@ -9,8 +9,9 @@ target 'EpitechEisenhower' do
 	pod 'Firebase/Core'
     pod 'Firebase/Auth'
     pod 'GoogleSignIn'
-    pod 'FacebookCore'
-    pod 'FacebookLogin'
-    pod 'FacebookShare'
+    #   pod 'FacebookCore'
+    #   pod 'FacebookLogin'
+    #pod 'FacebookShare'
     pod 'FBSDKLoginKit'
+    pod 'Firebase/Database'
 end
