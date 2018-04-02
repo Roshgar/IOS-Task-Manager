@@ -124,7 +124,7 @@
         <!--Sign Up-->
         <scene sceneID="ZF7-qm-2aD">
             <objects>
-                <viewController title="Sign Up" id="sqW-2h-Ywg" userLabel="Sign Up" sceneMemberID="viewController">
+                <viewController title="Sign Up" id="sqW-2h-Ywg" userLabel="Sign Up" customClass="SignUpViewController" customModule="EpitechEisenhower" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BaT-BV-zFF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -163,6 +163,11 @@
                         <color key="backgroundColor" red="0.50196078430000002" green="0.79215686269999996" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
                         <viewLayoutGuide key="safeArea" id="OZq-kH-zXI"/>
                     </view>
+                    <connections>
+                        <outlet property="email" destination="ksq-65-Kmq" id="y3p-L2-TuR"/>
+                        <outlet property="login" destination="TOL-QT-kRD" id="FPc-MJ-9Vp"/>
+                        <outlet property="password" destination="vnW-al-GTR" id="MTP-Bh-LvK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8sC-RE-Q0a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
