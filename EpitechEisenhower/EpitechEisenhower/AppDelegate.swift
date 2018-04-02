@@ -46,7 +46,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate{
         guard let authentication = user.authentication else { return }
         let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
                                                        accessToken: authentication.accessToken)
+        
+        print("before firebase login")
         logToFirebase(credential: credential)
+        /*
         let currentUser = Auth.auth().currentUser
         let userID = Auth.auth().currentUser?.uid
         self.refDB.child("users").child(userID!).observeSingleEvent(of: .value, with: {(snapshot) in
@@ -60,6 +63,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate{
             
             
         })
+        */
         
     }
 
