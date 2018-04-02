@@ -53,8 +53,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="connect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Zxs-rV-mdB"/>
-                                    <segue destination="bpJ-7R-gCs" kind="show" identifier="showHome" id="Cpe-7N-VcC"/>
+                                    <action selector="logInFirebase:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Z7l-yv-AyY"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E5A-b7-BEg">
@@ -114,7 +113,9 @@
                     <navigationItem key="navigationItem" id="Oha-Ie-XXa"/>
                     <connections>
                         <outlet property="connectButton" destination="mU7-pM-bLz" id="tMa-xC-qtt"/>
+                        <outlet property="emailTextField" destination="1vx-Gd-gI7" id="xdN-iL-0eo"/>
                         <outlet property="googleConnectButton" destination="8bC-Xf-vdC" id="ja1-9f-0SD"/>
+                        <outlet property="passwordTextField" destination="1cv-GW-LGN" id="uUK-z5-1Sh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -184,7 +185,7 @@
             <objects>
                 <viewController storyboardIdentifier="HomeViewController" title="Home" id="bpJ-7R-gCs" customClass="HomeViewController" customModule="EpitechEisenhower" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gag-Nj-uT7">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="yxj-oh-0Ue">
@@ -340,7 +341,7 @@
             <objects>
                 <viewController title="Task Details (Edit)" id="20T-kE-TnP" userLabel="Task Details (Edit)" customClass="TaskDetailsViewController" customModule="EpitechEisenhower" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Iga-A4-ehX">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.10000000000000001" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="LEV-5d-H0S">
@@ -467,7 +468,7 @@
             <objects>
                 <viewController title="Your Profile" id="dEu-qP-hPR" userLabel="Your Profile" customClass="YourProfileViewController" customModule="EpitechEisenhower" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3Zm-T3-4rM">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" alpha="0.10000000000000001" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Firstname Lastname" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fkc-Sd-FbL">
