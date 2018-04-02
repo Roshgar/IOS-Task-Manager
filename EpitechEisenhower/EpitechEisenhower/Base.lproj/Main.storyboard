@@ -94,6 +94,9 @@
                                 <rect key="frame" x="197" y="394" width="98" height="65"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="FBButton"/>
+                                <connections>
+                                    <action selector="facebookLoginWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hUg-SK-BcL"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5sb-Xs-mu7">
                                 <rect key="frame" x="128" y="467" width="119" height="46"/>
@@ -115,7 +118,7 @@
                     <navigationItem key="navigationItem" id="Oha-Ie-XXa"/>
                     <connections>
                         <outlet property="connectButton" destination="mU7-pM-bLz" id="tMa-xC-qtt"/>
-                        <outlet property="googleConnectButton" destination="E5A-b7-BEg" id="x3S-0l-2lJ"/>
+                        <outlet property="googleConnectButton" destination="8bC-Xf-vdC" id="ja1-9f-0SD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
