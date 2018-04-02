@@ -53,8 +53,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="connect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Zxs-rV-mdB"/>
-                                    <segue destination="bpJ-7R-gCs" kind="show" identifier="showHome" id="Cpe-7N-VcC"/>
+                                    <action selector="logInFirebase:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Z7l-yv-AyY"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E5A-b7-BEg">
@@ -114,7 +113,9 @@
                     <navigationItem key="navigationItem" id="Oha-Ie-XXa"/>
                     <connections>
                         <outlet property="connectButton" destination="mU7-pM-bLz" id="tMa-xC-qtt"/>
+                        <outlet property="emailTextField" destination="1vx-Gd-gI7" id="xdN-iL-0eo"/>
                         <outlet property="googleConnectButton" destination="8bC-Xf-vdC" id="ja1-9f-0SD"/>
+                        <outlet property="passwordTextField" destination="1cv-GW-LGN" id="uUK-z5-1Sh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -143,7 +144,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="21"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                             </textField>
                             <button opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LRl-4U-yWf">
                                 <rect key="frame" x="110" y="456" width="154" height="61"/>
@@ -153,6 +154,9 @@
                                 <state key="normal" title="Sign Up">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="resgisterUser:" destination="sqW-2h-Ywg" eventType="touchUpInside" id="VRY-OZ-Buk"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" alpha="0.10000000000000001" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ksq-65-Kmq">
                                 <rect key="frame" x="91" y="194" width="193" height="30"/>
@@ -167,9 +171,9 @@
                         <viewLayoutGuide key="safeArea" id="OZq-kH-zXI"/>
                     </view>
                     <connections>
-                        <outlet property="email" destination="ksq-65-Kmq" id="y3p-L2-TuR"/>
-                        <outlet property="login" destination="TOL-QT-kRD" id="FPc-MJ-9Vp"/>
-                        <outlet property="password" destination="vnW-al-GTR" id="MTP-Bh-LvK"/>
+                        <outlet property="emailTextField" destination="ksq-65-Kmq" id="uIt-Az-9ds"/>
+                        <outlet property="loginTextField" destination="TOL-QT-kRD" id="csu-rJ-WDt"/>
+                        <outlet property="passwordTextField" destination="vnW-al-GTR" id="YVe-NN-Pr0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8sC-RE-Q0a" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -181,7 +185,7 @@
             <objects>
                 <viewController storyboardIdentifier="HomeViewController" title="Home" id="bpJ-7R-gCs" customClass="HomeViewController" customModule="EpitechEisenhower" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gag-Nj-uT7">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="yxj-oh-0Ue">
@@ -335,7 +339,7 @@
             <objects>
                 <viewController title="Task Details (Edit)" id="20T-kE-TnP" userLabel="Task Details (Edit)" customClass="TaskDetailsViewController" customModule="EpitechEisenhower" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Iga-A4-ehX">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.10000000000000001" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="LEV-5d-H0S">
@@ -461,7 +465,7 @@
             <objects>
                 <viewController title="Your Profile" id="dEu-qP-hPR" userLabel="Your Profile" customClass="YourProfileViewController" customModule="EpitechEisenhower" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3Zm-T3-4rM">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" alpha="0.10000000000000001" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Firstname Lastname" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fkc-Sd-FbL">
