@@ -19,13 +19,24 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
     @IBOutlet weak var googleConnectButton: GIDSignInButton!;
     @IBOutlet weak var connectButton: UIButton!
     var refDB : DatabaseReference!;
+    var appDelegate : AppDelegate!;
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.appDelegate = AppDelegate()
         self.refDB = Database.database().reference()
         title = "Login"
         connectButton.layer.cornerRadius = 5
         GIDSignIn.sharedInstance().uiDelegate = self
+        if (Auth.auth().currentUser != nil) {
+           // self.performSegue(withIdentifier: "showHome", sender: nil)
+            
+            do {
+                try Auth.auth().signOut()
+            }   catch let signOutError as NSError{
+                    print("Error signing out : %@", signOutError)
+                }
+            }
     }
 
     
@@ -43,7 +54,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
             }
             
             let credential = FacebookAuthProvider.credential(withAccessToken: accessToken.tokenString)
-            
+            //self.appDelegate.logToFirebase(credential: credential)
             // Perform login by calling Firebase APIs
             Auth.auth().signIn(with: credential, completion: { (user, error) in
                 if let error = error {
@@ -55,8 +66,9 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
                     
                     return
                 }
-                
+                self.appDelegate.tryAddUserToDB()
                 // Add user to DB if not present
+                /*
                 let currentUser = Auth.auth().currentUser
                 let userID = Auth.auth().currentUser?.uid
                 //
@@ -71,6 +83,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
                    
                     
                 })
+ */
                 // Redirect to Home
                 self.performSegue(withIdentifier: "showHome", sender: nil)
                 

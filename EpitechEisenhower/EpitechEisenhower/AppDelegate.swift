@@ -15,7 +15,7 @@ import FirebaseDatabase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate{
-    var refDB : DatabaseReference!;
+    //var refDB : DatabaseReference!;
     var window: UIWindow?
     
     
@@ -31,6 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate{
             let viewController : HomeViewController = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
             let rootViewController = self.window!.rootViewController as! UINavigationController
             rootViewController.pushViewController(viewController, animated : true)
+            self.tryAddUserToDB()
         }
     }
     
@@ -49,21 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate{
         
         print("before firebase login")
         logToFirebase(credential: credential)
-        /*
-        let currentUser = Auth.auth().currentUser
-        let userID = Auth.auth().currentUser?.uid
-        self.refDB.child("users").child(userID!).observeSingleEvent(of: .value, with: {(snapshot) in
-            let value = snapshot.value as? NSDictionary
-            if (value == nil) {
-                self.refDB.child("users").child(userID!).setValue(["name" : currentUser?.displayName])
-            }
-            else {
-                print(currentUser?.displayName)
-            }
-            
-            
-        })
-        */
+        //tryAddUserToDB()
         
     }
 
@@ -89,7 +76,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate{
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
-        self.refDB = Database.database().reference()
+        //self.refDB = Database.database().reference()
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
@@ -118,6 +105,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate{
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-
+    func tryAddUserToDB() {
+        let currentUser = Auth.auth().currentUser
+        let userID = Auth.auth().currentUser?.uid
+        let refDB = Database.database().reference()
+        print(userID!)
+        print(currentUser?.displayName)
+        refDB.child("users").child(userID!).observeSingleEvent(of: .value, with: {(snapshot) in
+            print("before valuer get")
+           /* if (snapshot.hasChild(userID!)) {
+                print("child exists")
+                return ;
+            }*/
+            let value = snapshot.value as? NSDictionary
+            print("After value get")
+            if (value == nil) {
+                refDB.child("users").child(userID!).setValue(["name" : currentUser?.displayName])
+            }
+            else {
+                print(currentUser?.displayName)
+            }
+            
+            
+        })
+    }
 }
 
