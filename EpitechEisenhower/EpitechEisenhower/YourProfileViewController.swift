@@ -10,5 +10,13 @@ import Foundation
 import UIKit
 
 class YourProfileViewController: UIViewController {
+  
+    @IBOutlet weak var profilePic: UIImageView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        profilePic.layer.cornerRadius = profilePic.frame.size.width / 2;
+        profilePic.clipsToBounds = true;
+    }
     
 }

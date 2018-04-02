@@ -11,6 +11,12 @@ import UIKit
 
 class TaskDetailsViewController: UIViewController {
     
+    @IBOutlet weak var taskLabel: UITextView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        taskLabel.textContainer.maximumNumberOfLines = 3
+    }
     
     @IBAction func AddPeopleButton(_ sender: Any) {
         
