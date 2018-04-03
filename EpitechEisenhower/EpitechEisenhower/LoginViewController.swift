@@ -31,8 +31,6 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         connectButton.layer.cornerRadius = 5
         GIDSignIn.sharedInstance().uiDelegate = self
         if (Auth.auth().currentUser != nil) {
-           // self.performSegue(withIdentifier: "showHome", sender: nil)
-            
             do {
                 try Auth.auth().signOut()
             }   catch let signOutError as NSError{
@@ -60,8 +58,6 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
             }
             
             let credential = FacebookAuthProvider.credential(withAccessToken: accessToken.tokenString)
-            //self.appDelegate.logToFirebase(credential: credential)
-            // Perform login by calling Firebase APIs
             Auth.auth().signIn(with: credential, completion: { (user, error) in
                 if let error = error {
                     print("Login error: \(error.localizedDescription)")
@@ -73,32 +69,11 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
                     return
                 }
                 self.appDelegate.tryAddUserToDB()
-                // Add user to DB if not present
-                /*
-                let currentUser = Auth.auth().currentUser
-                let userID = Auth.auth().currentUser?.uid
-                //
-                self.refDB.child("users").child(userID!).observeSingleEvent(of: .value, with: {(snapshot) in
-                    let value = snapshot.value as? NSDictionary
-                    if (value == nil) {
-                        self.refDB.child("users").child(userID!).setValue(["name" : currentUser?.displayName])
-                    }
-                    else {
-                         print(currentUser?.displayName)
-                    }
-                   
-                    
-                })
- */
-                // Force to home Page without possibility of return (Access to login once logged is pointless)
                 let storyboard = UIStoryboard(name : "Main", bundle : nil)
                 let appDelegate = UIApplication.shared.delegate as! AppDelegate
                 let viewController : HomeViewController = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
                 let rootViewController = appDelegate.window!.rootViewController as! UINavigationController
                 rootViewController.pushViewController(viewController, animated : true)
-                // Redirect to Home
-                //self.performSegue(withIdentifier: "showHome", sender: nil)
-                
             })
             
         }
@@ -130,10 +105,6 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
             Auth.auth().signIn(withEmail: self.emailTextField.text!, password: self.passwordTextField.text!) { (user, error) in
                 
                 if error == nil {
-                    
-                    //Print into the console if successfully logged in
-                    print("You have successfully logged in")
-                    
                     //Go to the HomeViewController if the login is sucessful
                     let storyboard = UIStoryboard(name : "Main", bundle : nil)
                     let appDelegate = UIApplication.shared.delegate as! AppDelegate
