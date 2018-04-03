@@ -200,20 +200,12 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="enP-0B-JOy" userLabel="Cell" customClass="TaskViewCellCollectionViewCell" customModule="EpitechEisenhower" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="150" height="70"/>
+                                        <rect key="frame" x="0.0" y="50" width="150" height="100"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="150" height="70"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ImportantIcon" translatesAutoresizingMaskIntoConstraints="NO" id="yPK-i6-afT">
-                                                    <rect key="frame" x="128" y="0.0" width="22" height="29"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="UrgentIcon" translatesAutoresizingMaskIntoConstraints="NO" id="dza-RC-qnL">
-                                                    <rect key="frame" x="128" y="43" width="22" height="27"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="IPM-Oa-M34">
                                                     <rect key="frame" x="0.0" y="0.0" width="119" height="44"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -228,9 +220,19 @@
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vb5-IV-bXo">
+                                                    <rect key="frame" x="129" y="0.0" width="21" height="27"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" image="ImportantIcon"/>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xTH-9c-Qj0">
+                                                    <rect key="frame" x="129" y="48" width="21" height="22"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" image="UrgentIcon"/>
+                                                </button>
                                             </subviews>
                                         </view>
-                                        <size key="customSize" width="150" height="70"/>
+                                        <size key="customSize" width="150" height="100"/>
                                         <connections>
                                             <outlet property="taskLabel" destination="IPM-Oa-M34" id="QBg-ec-aDX"/>
                                         </connections>
