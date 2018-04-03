@@ -370,6 +370,7 @@
                                 <state key="normal" image="AddShare"/>
                                 <connections>
                                     <action selector="AddPeopleButton:" destination="20T-kE-TnP" eventType="touchUpInside" id="KRg-FJ-dN2"/>
+                                    <action selector="openPeopleSearchButton:" destination="20T-kE-TnP" eventType="touchUpInside" id="fdJ-MK-r2Q"/>
                                 </connections>
                             </button>
                             <view alpha="0.10000000000000001" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YP0-Xt-xw4">
@@ -393,6 +394,29 @@
                                     <action selector="importantButtonClicked:" destination="20T-kE-TnP" eventType="touchUpInside" id="L5l-32-6XA"/>
                                 </connections>
                             </button>
+                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t98-aP-hnx">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="74"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <searchBar contentMode="redraw" fixedFrame="YES" placeholder="Search People" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a3M-7V-agQ">
+                                        <rect key="frame" x="6" y="9" width="320" height="56"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="20T-kE-TnP" id="LYr-x1-KzS"/>
+                                        </connections>
+                                    </searchBar>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="93q-u2-I4X">
+                                        <rect key="frame" x="327" y="14" width="46" height="52"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Close"/>
+                                        <connections>
+                                            <action selector="CloseSearch:" destination="20T-kE-TnP" eventType="touchUpInside" id="N3f-AI-2ey"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.50196078430000002" green="0.79215686269999996" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.50196078430000002" green="0.79215686269999996" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
                         <viewLayoutGuide key="safeArea" id="8Qc-mU-eDu"/>
@@ -400,12 +424,23 @@
                     <connections>
                         <outlet property="dateTextField" destination="EZN-tO-2eY" id="kMR-e4-vgH"/>
                         <outlet property="importantButton" destination="IyE-kd-Vhg" id="dsI-Xc-ezP"/>
+                        <outlet property="peopleSearch" destination="t98-aP-hnx" id="udy-u9-8Ni"/>
+                        <outlet property="searchDisplayController" destination="GJv-NT-nng" id="eUf-fe-wqm"/>
                         <outlet property="taskDesc" destination="LEV-5d-H0S" id="c1D-Vf-bZV"/>
                         <outlet property="taskLabel" destination="eMy-Mx-AEu" id="wVT-DP-9mR"/>
                         <outlet property="urgentButton" destination="R4l-2V-eVo" id="KR2-57-HRd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QVt-kq-Ofn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="GJv-NT-nng">
+                    <connections>
+                        <outlet property="delegate" destination="20T-kE-TnP" id="5gR-u4-zDo"/>
+                        <outlet property="searchBar" destination="a3M-7V-agQ" id="ses-pQ-SFD"/>
+                        <outlet property="searchContentsController" destination="20T-kE-TnP" id="5vl-qC-cde"/>
+                        <outlet property="searchResultsDataSource" destination="20T-kE-TnP" id="umd-dm-DQY"/>
+                        <outlet property="searchResultsDelegate" destination="20T-kE-TnP" id="uey-Ch-hXg"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="759.20000000000005" y="-191.1544227886057"/>
         </scene>
@@ -483,6 +518,15 @@
                                 <rect key="frame" x="128" y="20" width="118" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bSC-Qg-O17">
+                                <rect key="frame" x="16" y="404" width="148" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.4941176471" green="0.82745098039999998" blue="0.12941176469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                                <state key="normal" title="Upload Image">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.50196078430000002" green="0.79215686269999996" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
                         <viewLayoutGuide key="safeArea" id="fiM-zv-w3s"/>
