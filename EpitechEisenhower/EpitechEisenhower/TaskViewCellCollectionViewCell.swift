@@ -9,7 +9,7 @@
 import UIKit
 
 class TaskViewCellCollectionViewCell: UICollectionViewCell {
-    
+    @IBOutlet weak var taskDate: UITextField!
     @IBOutlet weak var taskLabel: UITextView!
     @IBOutlet weak var importantButton: UIButton!
     @IBOutlet weak var urgentButton: UIButton!
