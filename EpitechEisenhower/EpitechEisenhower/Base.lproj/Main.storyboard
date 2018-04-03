@@ -186,53 +186,56 @@
                 <viewController storyboardIdentifier="HomeViewController" title="Home" id="bpJ-7R-gCs" customClass="HomeViewController" customModule="EpitechEisenhower" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gag-Nj-uT7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="yxj-oh-0Ue">
                                 <rect key="frame" x="28" y="36" width="319" height="567"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.50196078430000002" green="0.79215686269999996" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="EVm-83-xvl">
-                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="itemSize" width="150" height="100"/>
                                     <size key="headerReferenceSize" width="50" height="50"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="enP-0B-JOy" userLabel="Cell" customClass="TaskViewCellCollectionViewCell" customModule="EpitechEisenhower" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="150" height="70"/>
+                                        <rect key="frame" x="0.0" y="50" width="150" height="100"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="150" height="70"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ImportantIcon" translatesAutoresizingMaskIntoConstraints="NO" id="yPK-i6-afT">
-                                                    <rect key="frame" x="128" y="0.0" width="22" height="29"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="UrgentIcon" translatesAutoresizingMaskIntoConstraints="NO" id="dza-RC-qnL">
-                                                    <rect key="frame" x="128" y="43" width="22" height="27"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="IPM-Oa-M34">
-                                                    <rect key="frame" x="0.0" y="0.0" width="119" height="44"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu." textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IPM-Oa-M34">
+                                                    <rect key="frame" x="0.0" y="0.0" width="119" height="70"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
-                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Date" borderStyle="roundedRect" placeholder="Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9OF-3K-dF3">
-                                                    <rect key="frame" x="0.0" y="40" width="110" height="30"/>
+                                                <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Date" borderStyle="roundedRect" placeholder="Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9OF-3K-dF3">
+                                                    <rect key="frame" x="0.0" y="70" width="110" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xTH-9c-Qj0">
+                                                    <rect key="frame" x="117" y="58" width="32" height="42"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" image="UrgentIcon"/>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vb5-IV-bXo">
+                                                    <rect key="frame" x="119" y="9" width="25" height="28"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" image="ImportantIcon"/>
+                                                </button>
                                             </subviews>
                                         </view>
-                                        <size key="customSize" width="150" height="70"/>
                                         <connections>
                                             <outlet property="taskLabel" destination="IPM-Oa-M34" id="QBg-ec-aDX"/>
+                                            <segue destination="20T-kE-TnP" kind="show" id="WXe-Af-wCm"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -470,4 +473,7 @@
         <image name="ProfileIcon" width="31" height="31"/>
         <image name="UrgentIcon" width="21" height="19"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="WXe-Af-wCm"/>
+    </inferredMetricsTieBreakers>
 </document>
