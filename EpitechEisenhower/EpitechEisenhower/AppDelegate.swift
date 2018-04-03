@@ -120,7 +120,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate{
             let value = snapshot.value as? NSDictionary
             print("After value get")
             if (value == nil) {
-                refDB.child("users").child(userID!).setValue(["name" : currentUser?.displayName])
+                refDB.child("users").child(userID!).setValue(["name" : currentUser?.displayName, "email": currentUser?.email])
             }
             else {
                 print(currentUser?.displayName)

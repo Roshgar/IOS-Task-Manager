@@ -64,7 +64,7 @@ class TaskDetailsViewController: UIViewController {
         let date = dateTextField.text
         let label = taskLabel.text
         let currentUser = Auth.auth().currentUser
-        let userID = Auth.auth().currentUser?.uid
+        let userID = currentUser?.uid
         let refDB = Database.database().reference()
         
         let key = refDB.child("users").child(userID!).child("posts").childByAutoId().key
