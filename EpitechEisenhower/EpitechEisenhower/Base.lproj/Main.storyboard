@@ -221,12 +221,12 @@
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xTH-9c-Qj0">
+                                                <button opaque="NO" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xTH-9c-Qj0">
                                                     <rect key="frame" x="117" y="58" width="32" height="42"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="UrgentIcon"/>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vb5-IV-bXo">
+                                                <button opaque="NO" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vb5-IV-bXo">
                                                     <rect key="frame" x="119" y="9" width="25" height="28"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="ImportantIcon"/>
@@ -234,7 +234,9 @@
                                             </subviews>
                                         </view>
                                         <connections>
+                                            <outlet property="importantButton" destination="Vb5-IV-bXo" id="6KR-Zr-ZBP"/>
                                             <outlet property="taskLabel" destination="IPM-Oa-M34" id="QBg-ec-aDX"/>
+                                            <outlet property="urgentButton" destination="xTH-9c-Qj0" id="vzM-t6-XLq"/>
                                             <segue destination="20T-kE-TnP" kind="show" id="WXe-Af-wCm"/>
                                         </connections>
                                     </collectionViewCell>
@@ -279,7 +281,7 @@
         <scene sceneID="OQu-du-pyy">
             <objects>
                 <viewController title="Task Details (Edit)" id="20T-kE-TnP" userLabel="Task Details (Edit)" customClass="TaskDetailsViewController" customModule="EpitechEisenhower" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Iga-A4-ehX">
+                    <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Iga-A4-ehX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -355,19 +357,40 @@
                                 </state>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.10000000000000001" contentMode="scaleToFill" fixedFrame="YES" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="eMy-Mx-AEu">
-                                <rect key="frame" x="46" y="20" width="283" height="90"/>
+                                <rect key="frame" x="46" y="20" width="236" height="90"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="21"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="imj-2k-sFm">
-                                <rect key="frame" x="268" y="134" width="59" height="86"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="imj-2k-sFm" userLabel="addPeopleButton">
+                                <rect key="frame" x="265" y="134" width="59" height="86"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="AddShare"/>
                                 <connections>
                                     <action selector="AddPeopleButton:" destination="20T-kE-TnP" eventType="touchUpInside" id="KRg-FJ-dN2"/>
+                                </connections>
+                            </button>
+                            <view alpha="0.10000000000000001" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YP0-Xt-xw4">
+                                <rect key="frame" x="282" y="20" width="44" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <button opaque="NO" multipleTouchEnabled="YES" alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R4l-2V-eVo" userLabel="urgentButton">
+                                <rect key="frame" x="294" y="69" width="36" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="UrgentIcon"/>
+                                <connections>
+                                    <action selector="urgentButtonClicked:" destination="20T-kE-TnP" eventType="touchUpInside" id="Gc2-gH-o2C"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" multipleTouchEnabled="YES" alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IyE-kd-Vhg" userLabel="importantButton">
+                                <rect key="frame" x="298" y="28" width="24" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="ImportantIcon"/>
+                                <connections>
+                                    <action selector="importantButtonClicked:" destination="20T-kE-TnP" eventType="touchUpInside" id="L5l-32-6XA"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -376,8 +399,10 @@
                     </view>
                     <connections>
                         <outlet property="dateTextField" destination="EZN-tO-2eY" id="kMR-e4-vgH"/>
+                        <outlet property="importantButton" destination="IyE-kd-Vhg" id="dsI-Xc-ezP"/>
                         <outlet property="taskDesc" destination="LEV-5d-H0S" id="c1D-Vf-bZV"/>
                         <outlet property="taskLabel" destination="eMy-Mx-AEu" id="wVT-DP-9mR"/>
+                        <outlet property="urgentButton" destination="R4l-2V-eVo" id="KR2-57-HRd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QVt-kq-Ofn" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -11,11 +11,21 @@ import UIKit
 class TaskViewCellCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var taskLabel: UITextView!
+    @IBOutlet weak var importantButton: UIButton!
+    @IBOutlet weak var urgentButton: UIButton!
     
     func viewDidLoad() {
         //super.viewDidLoad()
         taskLabel.textContainer.maximumNumberOfLines = 3
         
+        /*
+        if (importantButton.state == false) {
+            importantButton.alpha = 0.5;
+        }
+        if (urgentButton.state == false) {
+            urgentButton.alpha = 0.5;
+        }
+         */
     }
     
 }

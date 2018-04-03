@@ -17,8 +17,39 @@ class TaskDetailsViewController: UIViewController {
     @IBOutlet weak var taskLabel: UITextView!
     @IBOutlet weak var dateTextField: UITextField!
     
+    @IBOutlet weak var importantButton: UIButton!
+    @IBOutlet weak var urgentButton: UIButton!
+    
+    var importantState : Bool! = false
+    @IBAction func importantButtonClicked(_ sender: Any) {
+        if (importantState) {
+            //Second Tap
+            importantButton.alpha = 0.5;
+            importantState = false
+        } else {
+            //First Tap
+            importantButton.alpha = 1;
+            importantState = true
+        }
+    }
+    var urgentState : Bool! = false
+    @IBAction func urgentButtonClicked(_ sender: Any) {
+        if (urgentState) {
+            //Second Tap
+            urgentButton.alpha =  0.5;
+            urgentState = false
+        } else {
+            //First Tap
+            urgentButton.alpha = 1;
+            urgentState = true
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+       
+        importantButton.adjustsImageWhenHighlighted = false;
+        urgentButton.adjustsImageWhenHighlighted = false;
         taskLabel.textContainer.maximumNumberOfLines = 3
         
     }
