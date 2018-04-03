@@ -235,6 +235,7 @@
                                         </view>
                                         <connections>
                                             <outlet property="importantButton" destination="Vb5-IV-bXo" id="6KR-Zr-ZBP"/>
+                                            <outlet property="taskDate" destination="9OF-3K-dF3" id="dsJ-f2-PQb"/>
                                             <outlet property="taskLabel" destination="IPM-Oa-M34" id="QBg-ec-aDX"/>
                                             <outlet property="urgentButton" destination="xTH-9c-Qj0" id="vzM-t6-XLq"/>
                                             <segue destination="20T-kE-TnP" kind="show" id="WXe-Af-wCm"/>
@@ -272,6 +273,9 @@
                         <color key="backgroundColor" red="0.50196078430000002" green="0.79215686269999996" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
                         <viewLayoutGuide key="safeArea" id="bPj-8T-InE"/>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="yxj-oh-0Ue" id="xlT-WV-sSp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3id-Qs-jlL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

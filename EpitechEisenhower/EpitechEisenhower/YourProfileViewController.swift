@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 import Firebase
 import FirebaseDatabase
+import FirebaseStorage
+
 
 class YourProfileViewController: UIViewController {
   
@@ -18,10 +20,11 @@ class YourProfileViewController: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var profilePic: UIImageView!
     var refDB : DatabaseReference!
-    
+    var refStorage: Storage!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.refStorage = Storage.storage()
         let currentUser = Auth.auth().currentUser
         let userID = currentUser?.uid
         profilePic.layer.cornerRadius = profilePic.frame.size.width / 2;
@@ -111,6 +114,8 @@ class YourProfileViewController: UIViewController {
            
         }
     }
+    
+    
     
     
 }

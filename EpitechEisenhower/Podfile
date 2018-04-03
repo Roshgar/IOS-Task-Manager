@@ -14,4 +14,5 @@ target 'EpitechEisenhower' do
     #pod 'FacebookShare'
     pod 'FBSDKLoginKit'
     pod 'Firebase/Database'
+    pod 'Firebase/Storage'
 end
