@@ -240,6 +240,10 @@
                                     <rect key="frame" x="0.0" y="0.0" width="319" height="50"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </collectionReusableView>
+                                <connections>
+                                    <outlet property="dataSource" destination="bpJ-7R-gCs" id="E4G-xf-956"/>
+                                    <outlet property="delegate" destination="bpJ-7R-gCs" id="BbG-AR-dcs"/>
+                                </connections>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Ip-HO-w41">
                                 <rect key="frame" x="327" y="-4" width="48" height="49"/>
@@ -322,6 +326,9 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="textFieldEditing:" destination="20T-kE-TnP" eventType="editingDidBegin" id="3rp-Sr-Qfe"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nc4-Ow-RdK">
                                 <rect key="frame" x="86" y="449" width="196" height="52"/>
@@ -331,6 +338,9 @@
                                 <state key="normal" title="Save changes">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="saveTask:" destination="20T-kE-TnP" eventType="touchUpInside" id="YU4-5Z-bKP"/>
+                                </connections>
                             </button>
                             <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6NL-ac-hI2">
                                 <rect key="frame" x="121" y="509" width="132" height="54"/>
@@ -362,6 +372,8 @@
                         <viewLayoutGuide key="safeArea" id="8Qc-mU-eDu"/>
                     </view>
                     <connections>
+                        <outlet property="dateTextField" destination="EZN-tO-2eY" id="kMR-e4-vgH"/>
+                        <outlet property="taskDesc" destination="LEV-5d-H0S" id="c1D-Vf-bZV"/>
                         <outlet property="taskLabel" destination="eMy-Mx-AEu" id="wVT-DP-9mR"/>
                     </connections>
                 </viewController>
