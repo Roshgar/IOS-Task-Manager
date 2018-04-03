@@ -238,7 +238,6 @@
                                             <outlet property="taskDate" destination="9OF-3K-dF3" id="dsJ-f2-PQb"/>
                                             <outlet property="taskLabel" destination="IPM-Oa-M34" id="QBg-ec-aDX"/>
                                             <outlet property="urgentButton" destination="xTH-9c-Qj0" id="vzM-t6-XLq"/>
-                                            <segue destination="20T-kE-TnP" kind="show" id="WXe-Af-wCm"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -266,7 +265,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="AddTask"/>
                                 <connections>
-                                    <segue destination="20T-kE-TnP" kind="show" id="VWy-Tx-cm8"/>
+                                    <segue destination="20T-kE-TnP" kind="show" identifier="addTask" id="VWy-Tx-cm8"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -275,6 +274,7 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="yxj-oh-0Ue" id="xlT-WV-sSp"/>
+                        <segue destination="20T-kE-TnP" kind="show" identifier="editTask" id="VGb-jR-feu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3id-Qs-jlL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -599,6 +599,6 @@
         <image name="UrgentIcon" width="21" height="19"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="WXe-Af-wCm"/>
+        <segue reference="VGb-jR-feu"/>
     </inferredMetricsTieBreakers>
 </document>
