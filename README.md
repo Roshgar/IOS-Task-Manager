@@ -11,30 +11,33 @@ https://drive.google.com/file/d/1a5n77lFWtxlGZSpw_MbJI_cTUyCmP8mc/view?usp=drive
 Import & run de projet dans Xcode : 
 https://help.dropsource.com/docs/documentation/after-dropsource/accessing-your-source-code/importing-ios-source-code-into-xcode/
 
+Pour que firebase & swift soient heureux ensemble :
 https://cocoapods.org/
-Pour que firebase & swift soient heureux ensemble
 
 # Equipe
 Ronan Courture
+
 Julie Terranova
+
 Cyril Vallerie
+
 Guillaume Couturier
 
 # Fonctionnalités présentes
-Inscription
-Connexion standard
-Connexion via Google
-Connexion via Facebook
-Deconnexion
-Renouveler le mot de passe
-Ajouter tache
-Modifier taches
-Sauvegarder taches et profil
-Supprimer tache
-Menu déroulant avec utilisateurs factices
-Stockage et récupération des textes et images en DB
-Boutons "important" et "urgent" implémentés
-Affichage des taches avec différentes priorités
+Inscription, 
+Connexion standard, 
+Connexion via Google, 
+Connexion via Facebook, 
+Deconnexion, 
+Renouveler le mot de passe, 
+Ajouter tache, 
+Modifier taches, 
+Sauvegarder taches et profil, 
+Supprimer tache, 
+Menu déroulant avec utilisateurs factices, 
+Stockage et récupération des textes et images en DB, 
+Boutons "important" et "urgent" implémentés, 
+Affichage des taches avec différentes priorités, 
 Interface similaire à celle demandée
 
 # Utilisation de l'application
