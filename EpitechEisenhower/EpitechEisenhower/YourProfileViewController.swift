@@ -45,14 +45,18 @@ class YourProfileViewController: UIViewController, UIImagePickerControllerDelega
             if (value?["desc"] != nil) {
                 self.descTextField.text = value?["desc"] as! String
             }
-            let downloadUrl = value?["img"] as! String
-            let storageRef = self.refStorage.reference(forURL: downloadUrl)
-            print("hello, in retrieval")
-            storageRef.getData(maxSize: 15 * 1024 * 1024) {(data, error) -> Void in
-                print("error is ", error)
-                let pic = UIImage(data: data!)
-                self.imageView.image = pic
+            if (value?["img"] != nil) {
+                let downloadUrl = value?["img"] as! String
+                let storageRef = self.refStorage.reference(forURL: downloadUrl)
+                print("hello, in retrieval")
+                storageRef.getData(maxSize: 15 * 1024 * 1024) {(data, error) -> Void in
+                    print("error is ", error)
+                    let pic = UIImage(data: data!)
+                    self.imageView.image = pic
+                }
             }
+            
+           
             //let username = value?["username"] as? String ?? ""
             // let user = User(username: username)
             
