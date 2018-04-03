@@ -15,7 +15,6 @@ import FirebaseDatabase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate{
-    //var refDB : DatabaseReference!;
     var window: UIWindow?
     
     
@@ -25,8 +24,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate{
                 print(error)
                 return
             }
-            print ("logged in")
-            //self.window?.rootViewController!.performSegue(withIdentifier: "showHome", sender: nil)
             let storyboard = UIStoryboard(name : "Main", bundle : nil)
             let viewController : HomeViewController = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
             let rootViewController = self.window!.rootViewController as! UINavigationController
@@ -62,7 +59,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate{
    
     
     func application(_ application: UIApplication, open url: URL, sourceApplication : String?, annotation: Any) -> Bool {
-            print("in open URL")
             let facebook = FBSDKApplicationDelegate.sharedInstance().application(application,
                                                                                  open: url,
                                                                                  sourceApplication: sourceApplication,
@@ -76,7 +72,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate{
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
-        //self.refDB = Database.database().reference()
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
@@ -112,13 +107,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate{
         print(userID!)
         print(currentUser?.displayName)
         refDB.child("users").child(userID!).observeSingleEvent(of: .value, with: {(snapshot) in
-            print("before valuer get")
-           /* if (snapshot.hasChild(userID!)) {
-                print("child exists")
-                return ;
-            }*/
             let value = snapshot.value as? NSDictionary
-            print("After value get")
             if (value == nil) {
                 refDB.child("users").child(userID!).setValue(["name" : currentUser?.displayName, "email": currentUser?.email])
             }

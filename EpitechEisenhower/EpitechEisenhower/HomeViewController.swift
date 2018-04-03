@@ -49,7 +49,6 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         let userID = currentUser?.uid
         let refDB = Database.database().reference()
         refDB.child("users").child(userID!).child("tasks").observe(.childRemoved, with: {(snapshot) in
-            print("view reloaded")
             self.collectionView!.reloadData()
         })
         refDB.child("users").child(userID!).child("tasks").observe(.childChanged, with: {(snapshot) in
@@ -57,38 +56,9 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
             })
         refDB.child("users").child(userID!).child("tasks").observe(.childAdded, with: { (snapshot) in
             let obj = snapshot.value as! NSDictionary
-           // print("IN LISTENER ", snapshot.key)
             self.items.append(Task(label: obj["label"]! as! String, desc: obj["desc"]! as! String, date: obj["date"]! as! String, urgent: Bool.init(obj["urgent"]! as! String)!, important: Bool.init(obj["important"]! as! String)!, id: snapshot.key).returnTaskAsDictionary())
             self.collectionView!.reloadData()
         })
-        
-      /*
-    (refDB.child("users").child(userID!).child("tasks")).observeSingleEvent(of: .value, with: { (snapshot) in
-        // Get user value
-        let value = snapshot.value as? NSDictionary
-        //let dataArray = value!
-        
-        for item in value! {
-            let obj = item.value as! NSDictionary
-            print("==================== NEW LOOP")
-            //print(obj["desc"]!)
-            //print(type(of: obj))
-            //print(type(of: obj.value))
-            self.items.append(Task(label: obj["label"]! as! String, desc: obj["desc"]! as! String, date: obj["date"]! as! String, urgent: Bool.init(obj["urgent"]! as! String)!, important: Bool.init(obj["important"]! as! String)!).returnTaskAsDictionary())
-        }
-        print("task object")
-        print(self.items)
-        self.collectionView!.reloadData()
-        //print(value!)
-        
-                //let username = value?["username"] as? String ?? ""
-               // let user = User(username: username)
-            
-            // ...
-        }) { (error) in
-            print(error.localizedDescription)
-        }
- */
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -139,13 +109,10 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "editTask") {
-            //print("=======EDIT TASK======", self.items[self.taskToPass])
-            //print("self.items ", self.items)
             let destinationVC:TaskDetailsViewController = segue.destination as! TaskDetailsViewController
             destinationVC.task = self.items[self.taskToPass]
         }
         else if (segue.identifier == "addTask"){
-           // print("=======ADD TASK======")
             let destinationVC:TaskDetailsViewController = segue.destination as! TaskDetailsViewController
             destinationVC.task = nil
         }

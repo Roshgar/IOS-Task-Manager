@@ -13,8 +13,6 @@ class PeopleCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var profileImage: UIImageView!
     
     func viewDidLoad() {
-        //super.viewDidLoad()
-        
         profileImage.layer.cornerRadius = profileImage.frame.size.width / 2;
         profileImage.clipsToBounds = true;
         
