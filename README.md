@@ -14,6 +14,10 @@ https://help.dropsource.com/docs/documentation/after-dropsource/accessing-your-s
 Pour que firebase & swift soient heureux ensemble :
 https://cocoapods.org/
 
+# Lancer le projet
+Se rendre à l'emplacement du fichier pod (IOS-Task-Manager/EpitechEisenhower/) et lancer une commande "pod install".
+Vous pourrez ensuite démarrer l'application.
+
 # Equipe
 Ronan Courture
 
