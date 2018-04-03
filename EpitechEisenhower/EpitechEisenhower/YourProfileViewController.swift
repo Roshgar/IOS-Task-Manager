@@ -37,13 +37,21 @@ class YourProfileViewController: UIViewController, UIImagePickerControllerDelega
         self.refDB.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
             let value = snapshot.value as? NSDictionary
-            print("task object")
-            print(value)
+            //print("task object")
+            //print(value)
             self.nameTextField.text = value?["name"] as? String
             self.emailTextField.text = currentUser?.email
             
             if (value?["desc"] != nil) {
                 self.descTextField.text = value?["desc"] as! String
+            }
+            let downloadUrl = value?["img"] as! String
+            let storageRef = self.refStorage.reference(forURL: downloadUrl)
+            print("hello, in retrieval")
+            storageRef.getData(maxSize: 15 * 1024 * 1024) {(data, error) -> Void in
+                print("error is ", error)
+                let pic = UIImage(data: data!)
+                self.imageView.image = pic
             }
             //let username = value?["username"] as? String ?? ""
             // let user = User(username: username)
@@ -52,6 +60,18 @@ class YourProfileViewController: UIViewController, UIImagePickerControllerDelega
         }) { (error) in
             print(error.localizedDescription)
         }
+        
+        print("after db ref init")
+        self.refDB.child("users").child(userID!).child("img").observe(.childAdded, with : { (snapshot) in
+            let downloadUrl = snapshot.value as! String
+            let storageRef = self.refStorage.reference(forURL: downloadUrl)
+            print("hello, in retrieval")
+            storageRef.getData(maxSize: 15 * 1024 * 1024) {(data, error) -> Void in
+                let pic = UIImage(data: data!)
+                self.imageView.image = pic
+            }
+        })
+        
     }
     
     
@@ -128,6 +148,22 @@ class YourProfileViewController: UIViewController, UIImagePickerControllerDelega
             imageView.image = pickedImage
         }
         dismiss(animated: true, completion : nil)
+        let userID = (Auth.auth().currentUser?.uid)!
+        let storageRef = self.refStorage.reference().child(userID)
+        if let uploadData = UIImagePNGRepresentation(self.imageView.image!) {
+            storageRef.putData(uploadData, metadata: nil) { (metadata, error) in
+                guard let metadata = metadata else {
+                    print(error!)
+                    return
+                }
+                let downloadURL = metadata.downloadURL()?.absoluteString
+                let updates = ["users/\(userID)/img" : downloadURL as String!]
+                self.refDB.updateChildValues(updates)
+            
+            
+            }
+        }
+        
     }
     
     

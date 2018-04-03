@@ -56,7 +56,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
             })
         refDB.child("users").child(userID!).child("tasks").observe(.childAdded, with: { (snapshot) in
             let obj = snapshot.value as! NSDictionary
-            print("IN LISTENER ", snapshot.key)
+           // print("IN LISTENER ", snapshot.key)
             self.items.append(Task(label: obj["label"]! as! String, desc: obj["desc"]! as! String, date: obj["date"]! as! String, urgent: Bool.init(obj["urgent"]! as! String)!, important: Bool.init(obj["important"]! as! String)!, id: snapshot.key).returnTaskAsDictionary())
             self.collectionView!.reloadData()
         })
@@ -91,7 +91,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print ("in collection view count ", self.items.count)
+        ////print ("in collection view count ", self.items.count)
         return self.items.count
     }
     
@@ -131,20 +131,20 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // handle tap events
-        print("You selected cell #\(indexPath.item)!")
+        //print("You selected cell #\(indexPath.item)!")
         self.taskToPass = indexPath.item
         self.performSegue(withIdentifier: "editTask", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "editTask") {
-            print("=======EDIT TASK======", self.items[self.taskToPass])
+            //print("=======EDIT TASK======", self.items[self.taskToPass])
             //print("self.items ", self.items)
             let destinationVC:TaskDetailsViewController = segue.destination as! TaskDetailsViewController
             destinationVC.task = self.items[self.taskToPass]
         }
         else if (segue.identifier == "addTask"){
-            print("=======ADD TASK======")
+           // print("=======ADD TASK======")
             let destinationVC:TaskDetailsViewController = segue.destination as! TaskDetailsViewController
             destinationVC.task = nil
         }
