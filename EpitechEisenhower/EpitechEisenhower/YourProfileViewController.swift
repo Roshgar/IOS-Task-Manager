@@ -9,18 +9,73 @@
 import Foundation
 import UIKit
 import Firebase
+import FirebaseDatabase
 
 class YourProfileViewController: UIViewController {
   
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var descTextField: UITextView!
+    @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var profilePic: UIImageView!
+    var refDB : DatabaseReference!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let currentUser = Auth.auth().currentUser
+        let userID = currentUser?.uid
         profilePic.layer.cornerRadius = profilePic.frame.size.width / 2;
         profilePic.clipsToBounds = true;
+        self.refDB = Database.database().reference()
+        self.refDB.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user value
+            let value = snapshot.value as? NSDictionary
+            print("task object")
+            print(value)
+            self.nameTextField.text = value?["name"] as? String
+            self.emailTextField.text = currentUser?.email
+            
+            if (value?["desc"] != nil) {
+                self.descTextField.text = value?["desc"] as! String
+            }
+            //let username = value?["username"] as? String ?? ""
+            // let user = User(username: username)
+            
+            // ...
+        }) { (error) in
+            print(error.localizedDescription)
+        }
     }
     
     
+    @IBAction func updateUser(_ sender: Any) {
+        let currentUser = Auth.auth().currentUser
+        let userID = currentUser?.uid
+        
+        
+        
+        // Retrieve values of fields
+        let nameField = nameTextField.text
+        let descField = descTextField.text
+        let emailField = emailTextField.text
+        
+        // Create update object for user based on fields.
+        //let userUpdate = ["name" : nameField, "desc" : descField, "email": emailField]
+        // Update fields individually (Less heavy than loading up all tasks and pushing everything)
+        let updates = ["users/\(userID!)/name" : nameField,
+                       "users/\(userID!)/desc" : descField,
+                       "users/\(userID!)/email" : emailField]
+        if (emailField != currentUser?.email) {
+            currentUser?.updateEmail(to: emailField!)
+        }
+        //print("user object is %@", user)
+        refDB.updateChildValues(updates)
+        /* let key = refDB.child("users").child(userID!).child("posts").childByAutoId().key
+         let task = ["label" : label, "date": date, "desc": desc]
+         
+         let childUpdates = ["users/\(userID!)/tasks/\(key)" : task]
+         refDB.updateChildValues(childUpdates)*/
+    }
     
     /*
      let vc = UIStoryBoard(name:"Main", bundle : nil).instantiateViewController(withIdentifier: "HomeViewController")
@@ -29,6 +84,7 @@ class YourProfileViewController: UIViewController {
     @IBAction func logUserOut(_ sender: Any) {
         if (Auth.auth().currentUser != nil) {
             // self.performSegue(withIdentifier: "showHome", sender: nil)
+            self.performSegue(withIdentifier: "unwindToLogin", sender: self)
             
             do {
                 try Auth.auth().signOut()
@@ -40,5 +96,21 @@ class YourProfileViewController: UIViewController {
         //present(vc, animated: true, completion: nil)
         
     }
+    
+    
+    @IBAction func resetPassword(_ sender: Any) {
+        Auth.auth().sendPasswordReset(withEmail: (Auth.auth().currentUser?.email)!) {(error) in
+            if (error != nil) {
+                let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+                
+                let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                alertController.addAction(defaultAction)
+                
+                self.present(alertController, animated: true, completion: nil)
+            }
+           
+        }
+    }
+    
     
 }

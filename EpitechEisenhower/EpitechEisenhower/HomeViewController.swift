@@ -18,7 +18,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     override func viewDidLoad() {
         let currentUser = Auth.auth().currentUser
-        let userID = Auth.auth().currentUser?.uid
+        let userID = currentUser?.uid
         let refDB = Database.database().reference()
         let items = ["testItem"]
         

@@ -46,8 +46,8 @@ class SignUpViewController: UIViewController {
                     let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
                     changeRequest?.displayName = login
                     changeRequest?.commitChanges{(error) in
-                        print(Auth.auth().currentUser?.displayName)
-                        print(error)
+                        //print(Auth.auth().currentUser?.displayName!)
+                        //print(error!)
                         self.appDelegateRef.tryAddUserToDB()
                     }
                     let storyboard = UIStoryboard(name : "Main", bundle : nil)
