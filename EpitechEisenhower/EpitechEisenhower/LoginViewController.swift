@@ -141,6 +141,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
                     let rootViewController = appDelegate.window!.rootViewController as! UINavigationController
                     rootViewController.pushViewController(viewController, animated : true)
                     
+                    
                 } else {
                     
                     //Tells the user that there is an error and then gets firebase to tell them the error
