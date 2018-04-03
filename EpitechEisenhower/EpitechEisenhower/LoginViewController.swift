@@ -86,8 +86,14 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
                     
                 })
  */
+                // Force to home Page without possibility of return (Access to login once logged is pointless)
+                let storyboard = UIStoryboard(name : "Main", bundle : nil)
+                let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                let viewController : HomeViewController = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+                let rootViewController = appDelegate.window!.rootViewController as! UINavigationController
+                rootViewController.pushViewController(viewController, animated : true)
                 // Redirect to Home
-                self.performSegue(withIdentifier: "showHome", sender: nil)
+                //self.performSegue(withIdentifier: "showHome", sender: nil)
                 
             })
             
