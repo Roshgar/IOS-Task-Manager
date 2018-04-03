@@ -22,6 +22,8 @@ class TaskDetailsViewController: UIViewController, UISearchBarDelegate, UITableV
     
     @IBOutlet weak var peopleSearch: UIView!
     
+    var task : NSDictionary!
+    
     @IBAction func openPeopleSearchButton(_ sender: Any) {
         peopleSearch.isHidden = false;
     }
@@ -76,6 +78,16 @@ class TaskDetailsViewController: UIViewController, UISearchBarDelegate, UITableV
         taskLabel.textContainer.maximumNumberOfLines = 3
             searchBar.placeholder = nil;
         
+        
+        if (self.task != nil) {
+            print("IT WORKED MON ", self.task)
+            taskDesc.text = self.task["desc"]! as! String
+            taskLabel.text = self.task["label"]! as! String
+            dateTextField.text = self.task["date"]! as? String
+            importantState = Bool.init(exactly: self.task["important"]! as! NSNumber)
+            urgentState = Bool.init(exactly: self.task["urgent"]! as! NSNumber)
+        }
+
     
         tableView.dataSource = self
         searchBar.delegate = self
@@ -100,6 +112,7 @@ class TaskDetailsViewController: UIViewController, UISearchBarDelegate, UITableV
     
     // This method updates filteredData based on the text in the Search Box
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print("In searchbar thing")
         // When there is no text, filteredData is the same as the original data
         // When user has entered text into the search box
         // Use the filter method to iterate over all items in the data array
@@ -125,8 +138,15 @@ class TaskDetailsViewController: UIViewController, UISearchBarDelegate, UITableV
         let currentUser = Auth.auth().currentUser
         let userID = currentUser?.uid
         let refDB = Database.database().reference()
+        var key: String
         
-        let key = refDB.child("users").child(userID!).child("posts").childByAutoId().key
+        if (self.task == nil) {
+            key = refDB.child("users").child(userID!).child("posts").childByAutoId().key
+        }
+        else {
+            key = self.task["uid"]! as! String
+        }
+        
         let task = ["label" : label!, "date": date, "desc": desc, "important" : important, "urgent" : urgent]
         
         let childUpdates = ["users/\(userID!)/tasks/\(key)" : task]
