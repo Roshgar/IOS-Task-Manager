@@ -50,6 +50,10 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
                 return
             }
             
+            if (result?.isCancelled)! {
+                return
+            }
+            
             guard let accessToken = FBSDKAccessToken.current() else {
                 print("Failed to get access token")
                 return
