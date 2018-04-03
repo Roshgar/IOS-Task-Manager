@@ -431,6 +431,9 @@
                                 <state key="normal" title="Logout">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="logUserOut:" destination="dEu-qP-hPR" eventType="touchUpInside" id="K4Z-QN-NdU"/>
+                                </connections>
                             </button>
                             <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fSL-8o-bIF">
                                 <rect key="frame" x="223" y="405" width="136" height="40"/>
