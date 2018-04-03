@@ -57,6 +57,7 @@ class TaskDetailsViewController: UIViewController, UISearchBarDelegate, UITableV
         }
     }
     
+    
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     // get people list here
@@ -70,18 +71,20 @@ class TaskDetailsViewController: UIViewController, UISearchBarDelegate, UITableV
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
         importantButton.adjustsImageWhenHighlighted = false;
         urgentButton.adjustsImageWhenHighlighted = false;
         taskLabel.textContainer.maximumNumberOfLines = 3
-        
+            searchBar.placeholder = nil;
         
     
         tableView.dataSource = self
         searchBar.delegate = self
         filteredData = data
         
-        self.tableView.register(UITableViewCell.classForKeyedArchiver(), forCellReuseIdentifier: "TableCell")
+        let cellNib = UINib(nibName: "NibTableViewCell", bundle: Bundle.main)
+        
+    
+        tableView.register(cellNib, forCellReuseIdentifier: "TableCell")
     }
     
     

@@ -413,16 +413,16 @@
                                         <rect key="frame" x="0.0" y="0.0" width="310" height="254"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <searchBar key="tableHeaderView" contentMode="redraw" id="vP5-LW-qEc">
+                                        <searchBar key="tableHeaderView" userInteractionEnabled="NO" contentMode="redraw" id="QLb-Ze-58e">
                                             <rect key="frame" x="0.0" y="0.0" width="310" height="44"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                             <textInputTraits key="textInputTraits"/>
                                             <connections>
-                                                <outlet property="delegate" destination="20T-kE-TnP" id="vcR-kq-ZXZ"/>
+                                                <outlet property="delegate" destination="20T-kE-TnP" id="zeP-xi-u87"/>
                                             </connections>
                                         </searchBar>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TableCell" rowHeight="40" id="ejW-ED-dZt">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="TableCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TableCell" rowHeight="40" id="ejW-ED-dZt" customClass="NibTableViewCell" customModule="EpitechEisenhower" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="72" width="310" height="40"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ejW-ED-dZt" id="cr2-56-Z2b" customClass="PeopleTableViewCell" customModule="EpitechEisenhower" customModuleProvider="target">
@@ -433,18 +433,30 @@
                                                             <rect key="frame" x="15" y="0.0" width="47" height="49"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         </imageView>
-                                                        <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cG3-4O-jiM">
-                                                            <rect key="frame" x="73" y="4" width="225" height="30"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aT6-DF-xD6">
+                                                            <rect key="frame" x="70" y="-2" width="216" height="41"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                            <textInputTraits key="textInputTraits"/>
-                                                        </textField>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                 </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="name" destination="aT6-DF-xD6" id="ggr-C4-0rn"/>
+                                                    <outlet property="profilePic" destination="qkz-Wb-9qt" id="azJ-gG-2QN"/>
+                                                </connections>
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search Here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FU3-cC-cvX">
+                                        <rect key="frame" x="41" y="14" width="250" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                 </subviews>
                                 <color key="backgroundColor" red="0.50196078430000002" green="0.79215686269999996" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
@@ -456,8 +468,8 @@
                         <outlet property="dateTextField" destination="EZN-tO-2eY" id="kMR-e4-vgH"/>
                         <outlet property="importantButton" destination="IyE-kd-Vhg" id="dsI-Xc-ezP"/>
                         <outlet property="peopleSearch" destination="t98-aP-hnx" id="udy-u9-8Ni"/>
-                        <outlet property="searchBar" destination="vP5-LW-qEc" id="Kcx-Rp-Vl6"/>
-                        <outlet property="searchDisplayController" destination="E2t-VR-r9n" id="cJg-ns-Oap"/>
+                        <outlet property="searchBar" destination="QLb-Ze-58e" id="Zgt-qG-Jsz"/>
+                        <outlet property="searchDisplayController" destination="kTr-Ee-ohR" id="Rnk-WC-t0R"/>
                         <outlet property="tableView" destination="wTy-Gf-ZsT" id="PdA-pI-UIl"/>
                         <outlet property="taskDesc" destination="LEV-5d-H0S" id="c1D-Vf-bZV"/>
                         <outlet property="taskLabel" destination="eMy-Mx-AEu" id="wVT-DP-9mR"/>
@@ -476,10 +488,18 @@
                 <searchDisplayController id="E2t-VR-r9n">
                     <connections>
                         <outlet property="delegate" destination="20T-kE-TnP" id="NdZ-YM-jhN"/>
-                        <outlet property="searchBar" destination="vP5-LW-qEc" id="MPj-LM-ECb"/>
                         <outlet property="searchContentsController" destination="20T-kE-TnP" id="2BW-XQ-qoh"/>
                         <outlet property="searchResultsDataSource" destination="20T-kE-TnP" id="Xi4-KH-N2n"/>
                         <outlet property="searchResultsDelegate" destination="20T-kE-TnP" id="R7y-sF-K7q"/>
+                    </connections>
+                </searchDisplayController>
+                <searchDisplayController id="kTr-Ee-ohR">
+                    <connections>
+                        <outlet property="delegate" destination="20T-kE-TnP" id="G7E-7X-We3"/>
+                        <outlet property="searchBar" destination="QLb-Ze-58e" id="9M0-3q-RG4"/>
+                        <outlet property="searchContentsController" destination="20T-kE-TnP" id="zgV-V6-dGC"/>
+                        <outlet property="searchResultsDataSource" destination="20T-kE-TnP" id="Hct-7z-yCm"/>
+                        <outlet property="searchResultsDelegate" destination="20T-kE-TnP" id="8t5-Yx-Ra5"/>
                     </connections>
                 </searchDisplayController>
             </objects>

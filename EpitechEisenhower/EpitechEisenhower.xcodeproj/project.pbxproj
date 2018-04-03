@@ -15,6 +15,8 @@
 		5C05CED22066B3340065F039 /* YourProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C05CED02066B3340065F039 /* YourProfileViewController.swift */; };
 		5C2F28472072D29500385D18 /* TaskViewCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2F28462072D29500385D18 /* TaskViewCellCollectionViewCell.swift */; };
 		5C2F28492072DABC00385D18 /* PeopleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2F28482072DABC00385D18 /* PeopleCollectionViewCell.swift */; };
+		5C6CBE0320740D19000CEFA0 /* NibTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6CBE0120740D19000CEFA0 /* NibTableViewCell.swift */; };
+		5C6CBE0420740D19000CEFA0 /* NibTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C6CBE0220740D19000CEFA0 /* NibTableViewCell.xib */; };
 		9A5623D51F7940280009CD23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5623D41F7940280009CD23 /* AppDelegate.swift */; };
 		9A5623D71F7940280009CD23 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5623D61F7940280009CD23 /* LoginViewController.swift */; };
 		9A5623DA1F7940280009CD23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A5623D81F7940280009CD23 /* Main.storyboard */; };
@@ -34,6 +36,8 @@
 		5C05CED02066B3340065F039 /* YourProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YourProfileViewController.swift; sourceTree = "<group>"; };
 		5C2F28462072D29500385D18 /* TaskViewCellCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewCellCollectionViewCell.swift; sourceTree = "<group>"; };
 		5C2F28482072DABC00385D18 /* PeopleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleCollectionViewCell.swift; sourceTree = "<group>"; };
+		5C6CBE0120740D19000CEFA0 /* NibTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibTableViewCell.swift; sourceTree = "<group>"; };
+		5C6CBE0220740D19000CEFA0 /* NibTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NibTableViewCell.xib; sourceTree = "<group>"; };
 		6B432F7DAED5271F483C317E /* Pods-EpitechEisenhower.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EpitechEisenhower.release.xcconfig"; path = "Pods/Target Support Files/Pods-EpitechEisenhower/Pods-EpitechEisenhower.release.xcconfig"; sourceTree = "<group>"; };
 		9A5623D11F7940280009CD23 /* EpitechEisenhower.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EpitechEisenhower.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A5623D41F7940280009CD23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -99,6 +103,8 @@
 				073323E32066B5AE00178FE4 /* HomeViewController.swift */,
 				072BC357207298AF00990F5B /* SignUpViewController.swift */,
 				072EECA92073C6E500D5914F /* Tasks.swift */,
+				5C6CBE0120740D19000CEFA0 /* NibTableViewCell.swift */,
+				5C6CBE0220740D19000CEFA0 /* NibTableViewCell.xib */,
 			);
 			path = EpitechEisenhower;
 			sourceTree = "<group>";
@@ -176,6 +182,7 @@
 			files = (
 				9A5623DF1F7940280009CD23 /* LaunchScreen.storyboard in Resources */,
 				073175672060555B00F592C5 /* GoogleService-Info.plist in Resources */,
+				5C6CBE0420740D19000CEFA0 /* NibTableViewCell.xib in Resources */,
 				9A5623DC1F7940280009CD23 /* Assets.xcassets in Resources */,
 				9A5623DA1F7940280009CD23 /* Main.storyboard in Resources */,
 			);
@@ -262,6 +269,7 @@
 				073323E42066B5AE00178FE4 /* HomeViewController.swift in Sources */,
 				9A5623D71F7940280009CD23 /* LoginViewController.swift in Sources */,
 				5C05CED22066B3340065F039 /* YourProfileViewController.swift in Sources */,
+				5C6CBE0320740D19000CEFA0 /* NibTableViewCell.swift in Sources */,
 				5C05CED12066B3340065F039 /* TaskDetailsViewController.swift in Sources */,
 				072EECAA2073C6E500D5914F /* Tasks.swift in Sources */,
 				5C2F28472072D29500385D18 /* TaskViewCellCollectionViewCell.swift in Sources */,
