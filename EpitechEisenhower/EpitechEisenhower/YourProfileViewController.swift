@@ -13,17 +13,21 @@ import FirebaseDatabase
 import FirebaseStorage
 
 
-class YourProfileViewController: UIViewController {
+class YourProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
   
+    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var descTextField: UITextView!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var profilePic: UIImageView!
+    
+    let imagePicker = UIImagePickerController()
     var refDB : DatabaseReference!
     var refStorage: Storage!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        imagePicker.delegate = self
         self.refStorage = Storage.storage()
         let currentUser = Auth.auth().currentUser
         let userID = currentUser?.uid
@@ -115,6 +119,24 @@ class YourProfileViewController: UIViewController {
         }
     }
     
+    
+    @objc func imagePickerController(_ picker : UIImagePickerController, didFinishPickingMediaWithInfo info : [String : AnyObject]) {
+        print ("in finish poicking thingie")
+        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            print("image added")
+            imageView.contentMode = .scaleAspectFit
+            imageView.image = pickedImage
+        }
+        dismiss(animated: true, completion : nil)
+    }
+    
+    
+    @IBAction func addUserImage(_ sender: Any) {
+        imagePicker.allowsEditing = false
+        imagePicker.sourceType = .photoLibrary
+        
+        present(imagePicker, animated : true, completion : nil)
+    }
     
     
     
