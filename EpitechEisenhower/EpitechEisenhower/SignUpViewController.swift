@@ -50,10 +50,11 @@ class SignUpViewController: UIViewController {
                         print(error)
                         self.appDelegateRef.tryAddUserToDB()
                     }
-                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController")
-                    
-                    print("After userID print")
-                    self.present(vc!, animated: true, completion: nil)
+                    let storyboard = UIStoryboard(name : "Main", bundle : nil)
+                    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                    let viewController : HomeViewController = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+                    let rootViewController = appDelegate.window!.rootViewController as! UINavigationController
+                    rootViewController.pushViewController(viewController, animated : true)
                     
                 } else {
                     let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)

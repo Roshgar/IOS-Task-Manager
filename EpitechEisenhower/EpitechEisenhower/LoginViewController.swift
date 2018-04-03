@@ -135,8 +135,11 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
                     print("You have successfully logged in")
                     
                     //Go to the HomeViewController if the login is sucessful
-                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController")
-                    self.present(vc!, animated: true, completion: nil)
+                    let storyboard = UIStoryboard(name : "Main", bundle : nil)
+                    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                    let viewController : HomeViewController = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+                    let rootViewController = appDelegate.window!.rootViewController as! UINavigationController
+                    rootViewController.pushViewController(viewController, animated : true)
                     
                 } else {
                     
