@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/mcfly/Desktop/IOS-Task-Manager/EpitechEisenhower/EpitechEisenhower/SearchTableViewCell.swift">
-   </FileRef>
-   <FileRef
       location = "group:EpitechEisenhower.xcodeproj">
    </FileRef>
    <FileRef

@@ -12,7 +12,7 @@ class SearchTableViewCell: UITableViewCell {
     
     
     func viewDidLoad() {
-        //super.viewDidLoad()
+        // super.viewDidLoad()
     
         
     }
