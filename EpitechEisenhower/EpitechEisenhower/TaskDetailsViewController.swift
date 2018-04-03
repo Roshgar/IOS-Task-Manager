@@ -78,7 +78,6 @@ class TaskDetailsViewController: UIViewController, UISearchBarDelegate, UITableV
         taskLabel.textContainer.maximumNumberOfLines = 3
         
         if (self.task != nil) {
-            print("IT WORKED MON ", self.task)
             taskDesc.text = self.task["desc"]! as! String
             taskLabel.text = self.task["label"]! as! String
             dateTextField.text = self.task["date"]! as? String
@@ -106,7 +105,6 @@ class TaskDetailsViewController: UIViewController, UISearchBarDelegate, UITableV
     
     // This method updates filteredData based on the text in the Search Box
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print("In searchbar thing")
         // When there is no text, filteredData is the same as the original data
         // When user has entered text into the search box
         // Use the filter method to iterate over all items in the data array
@@ -119,8 +117,21 @@ class TaskDetailsViewController: UIViewController, UISearchBarDelegate, UITableV
         
         tableView.reloadData()
     }
-    
-    
+    @IBAction func deleteTask(_ sender: Any) {
+        let key = self.task["uid"]! as! String
+        let refDB = Database.database().reference()
+        let currentUser = Auth.auth().currentUser
+
+        let userID = currentUser?.uid
+        print("In delete taks ", key)
+    refDB.child("users").child(userID!).child("tasks").child(key).removeValue()
+        let alertController = UIAlertController(title: "Deletion", message: "The task was correctly deleted. Due to the machinations of gremlins, please reload the home page to see updated list" , preferredStyle: .alert)
+        
+        let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alertController.addAction(defaultAction)
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
     @IBAction func saveTask(_ sender: Any) {
         let desc = taskDesc.text
         let date = dateTextField.text
@@ -135,7 +146,7 @@ class TaskDetailsViewController: UIViewController, UISearchBarDelegate, UITableV
         var key: String
         
         if (self.task == nil) {
-            key = refDB.child("users").child(userID!).child("posts").childByAutoId().key
+            key = refDB.child("users").child(userID!).child("tasks").childByAutoId().key
         }
         else {
             key = self.task["uid"]! as! String

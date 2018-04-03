@@ -43,15 +43,16 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     let reuseIdentifier = "cell"
     var items = [NSDictionary]()
     var taskToPass : Int!
-    
-    
-    
+
     override func viewDidLoad() {
         let currentUser = Auth.auth().currentUser
         let userID = currentUser?.uid
         let refDB = Database.database().reference()
-        
-            refDB.child("users").child(userID!).child("tasks").observe(.childChanged, with: {(snapshot) in
+        refDB.child("users").child(userID!).child("tasks").observe(.childRemoved, with: {(snapshot) in
+            print("view reloaded")
+            self.collectionView!.reloadData()
+        })
+        refDB.child("users").child(userID!).child("tasks").observe(.childChanged, with: {(snapshot) in
                 self.collectionView!.reloadData()
             })
         refDB.child("users").child(userID!).child("tasks").observe(.childAdded, with: { (snapshot) in

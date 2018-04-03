@@ -359,6 +359,9 @@
                                 <state key="normal" title="Delete Task">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="deleteTask:" destination="20T-kE-TnP" eventType="touchUpInside" id="5Oo-gd-P0A"/>
+                                </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.10000000000000001" contentMode="scaleToFill" fixedFrame="YES" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="eMy-Mx-AEu">
                                 <rect key="frame" x="46" y="20" width="236" height="90"/>
